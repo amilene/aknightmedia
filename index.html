@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="AKnight Media — creative storytelling, digital media, and brand content."
+    />
+    <title>AKnight Media</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="#">AKnight Media</a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span>
+          <span></span>
+        </button>
+        <ul class="nav-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#work">Work</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <section class="hero">
+        <p class="eyebrow">Digital media &amp; storytelling</p>
+        <h1>Stories that move people.</h1>
+        <p class="hero-text">
+          AKnight Media helps brands and creators share their message through
+          thoughtful content, clean design, and media that feels human.
+        </p>
+        <div class="hero-actions">
+          <a class="button button-primary" href="#contact">Start a project</a>
+          <a class="button button-secondary" href="#work">View work</a>
+        </div>
+      </section>
+
+      <section id="about" class="section about">
+        <div class="section-intro">
+          <p class="eyebrow">About</p>
+          <h2>Built for clarity, crafted with care.</h2>
+        </div>
+        <div class="about-grid">
+          <p>
+            Whether you need a landing page, campaign assets, or a full content
+            strategy, the focus is the same: clear ideas, strong visuals, and
+            work that earns attention without shouting for it.
+          </p>
+          <ul class="stats">
+            <li>
+              <strong>Strategy</strong>
+              <span>Message, audience, and goals aligned before production.</span>
+            </li>
+            <li>
+              <strong>Design</strong>
+              <span>Modern layouts that look sharp on every screen.</span>
+            </li>
+            <li>
+              <strong>Delivery</strong>
+              <span>Fast turnaround with room to refine.</span>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <section id="work" class="section work">
+        <div class="section-intro">
+          <p class="eyebrow">Work</p>
+          <h2>Selected projects</h2>
+        </div>
+        <div class="card-grid">
+          <article class="card">
+            <p class="card-tag">Brand</p>
+            <h3>Launch campaign</h3>
+            <p>Visual identity and landing page for a new product rollout.</p>
+          </article>
+          <article class="card">
+            <p class="card-tag">Content</p>
+            <h3>Editorial series</h3>
+            <p>Long-form articles and social cutdowns for a growing audience.</p>
+          </article>
+          <article class="card">
+            <p class="card-tag">Web</p>
+            <h3>Portfolio site</h3>
+            <p>Fast, accessible static site hosted on AWS for a creative studio.</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="services" class="section services">
+        <div class="section-intro">
+          <p class="eyebrow">Services</p>
+          <h2>What we can do together</h2>
+        </div>
+        <div class="service-list">
+          <div class="service">
+            <h3>Website design</h3>
+            <p>Simple, fast sites that tell your story and convert visitors.</p>
+          </div>
+          <div class="service">
+            <h3>Content creation</h3>
+            <p>Copy, visuals, and media packages tailored to your brand voice.</p>
+          </div>
+          <div class="service">
+            <h3>AWS hosting setup</h3>
+            <p>Reliable cloud deployment with S3, CloudFront, and best practices.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="section contact">
+        <div class="contact-panel">
+          <p class="eyebrow">Contact</p>
+          <h2>Let&apos;s build something worth sharing.</h2>
+          <p>
+            Tell us about your project and we&apos;ll get back to you within one
+            business day.
+          </p>
+          <a class="button button-primary" href="mailto:hello@aknightmedia.com">
+            hello@aknightmedia.com
+          </a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>&copy; <span id="year"></span> AKnight Media. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
