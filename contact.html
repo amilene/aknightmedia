@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Contact Knight Media to start your next creative project." />
+    <title>Contact — Knight Media</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="index.html">
+          <img
+            class="logo-img"
+            src="assets/logo-animated.png"
+            data-static="assets/logo-static.png"
+            alt="Knight Media"
+          />
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta is-active">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-content">
+        <div class="page-hero">
+          <h1>Let&apos;s Work Together</h1>
+          <p>
+            Ready to elevate your brand? Get in touch to discuss your project
+            and discover how strategy-backed creative can drive your business growth.
+          </p>
+        </div>
+
+        <div class="contact-grid">
+          <div class="form-panel">
+            <h2>Send a Message</h2>
+            <form id="contact-form" action="mailto:hello@aknightmedia.com" method="post" enctype="text/plain">
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="name">Your Name *</label>
+                  <input type="text" id="name" name="name" required placeholder="John Doe" />
+                </div>
+                <div class="form-group">
+                  <label for="email">Email Address *</label>
+                  <input type="email" id="email" name="email" required placeholder="john@example.com" />
+                </div>
+                <div class="form-group full">
+                  <label for="company">Company Name</label>
+                  <input type="text" id="company" name="company" placeholder="Your Company" />
+                </div>
+                <div class="form-group full">
+                  <label for="service">Service Interested In *</label>
+                  <select id="service" name="service" required>
+                    <option value="">Select a service</option>
+                    <option value="brand-launch">Brand Launch Kit</option>
+                    <option value="explainer-video">Explainer Video Package</option>
+                    <option value="social-motion">Social Motion Pack</option>
+                    <option value="full-brand-web">Full Brand + Web</option>
+                    <option value="consultation">General Consultation</option>
+                  </select>
+                </div>
+                <div class="form-group full">
+                  <label for="message">Project Details *</label>
+                  <textarea id="message" name="message" required placeholder="Tell me about your project, goals, and timeline..."></textarea>
+                </div>
+              </div>
+              <button class="button button-primary" type="submit" style="margin-top: 1.5rem;">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m22 2-7 20-4-9-9-4Z"></path>
+                  <path d="M22 2 11 13"></path>
+                </svg>
+                Send Message
+              </button>
+            </form>
+          </div>
+
+          <div class="contact-sidebar">
+            <div class="info-card">
+              <h3>Get in Touch</h3>
+              <a class="contact-item" href="mailto:hello@aknightmedia.com">
+                <div class="contact-item-icon" style="background: rgba(99, 102, 241, 0.2); color: #818cf8;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <rect width="20" height="16" x="2" y="4" rx="2"></rect>
+                    <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">Email</div>
+                  <div>hello@aknightmedia.com</div>
+                </div>
+              </a>
+              <a class="contact-item" href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                <div class="contact-item-icon" style="background: rgba(236, 72, 153, 0.2); color: #f472b6;">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                    <rect width="4" height="12" x="2" y="9"></rect>
+                    <circle cx="4" cy="4" r="2"></circle>
+                  </svg>
+                </div>
+                <div>
+                  <div class="contact-item-label">LinkedIn</div>
+                  <div>Connect on LinkedIn</div>
+                </div>
+              </a>
+            </div>
+
+            <div class="info-card highlight">
+              <h3>Quick Response</h3>
+              <p style="color: var(--text-muted); margin: 0 0 1rem;">
+                I typically respond to all inquiries within 24 hours. For urgent projects,
+                please mention it in your message.
+              </p>
+              <p style="color: var(--indigo-light); font-size: 0.875rem; margin: 0;">
+                Available for projects starting Q2 2026
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h3>Knight Media</h3>
+            <p>Strategy-backed creative for growing businesses</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <p>Branding &bull; Web Design &bull; Video Production &bull; Animation</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Knight Media. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>

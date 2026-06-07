@@ -5,138 +5,312 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="AKnight Media — creative storytelling, digital media, and brand content."
+      content="Knight Media — strategy-backed creative for growing businesses."
     />
-    <title>AKnight Media</title>
+    <title>Knight Media</title>
     <link rel="stylesheet" href="styles.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,400&family=Playfair+Display:wght@500;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
   </head>
   <body>
     <header class="site-header">
       <nav class="nav">
-        <a class="logo" href="#">AKnight Media</a>
+        <a class="logo" href="index.html">
+          <img
+            class="logo-img"
+            src="assets/logo-animated.png"
+            data-static="assets/logo-static.png"
+            alt="Knight Media"
+          />
+        </a>
         <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
-          <span></span>
-          <span></span>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
         </button>
         <ul class="nav-links">
-          <li><a href="#about">About</a></li>
-          <li><a href="#work">Work</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#contact">Contact</a></li>
+          <li><a href="index.html" class="is-active">Home</a></li>
+          <li><a href="portfolio.html">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
         </ul>
       </nav>
     </header>
 
     <main>
       <section class="hero">
-        <p class="eyebrow">Digital media &amp; storytelling</p>
-        <h1>Stories that move people.</h1>
-        <p class="hero-text">
-          AKnight Media helps brands and creators share their message through
-          thoughtful content, clean design, and media that feels human.
-        </p>
-        <div class="hero-actions">
-          <a class="button button-primary" href="#contact">Start a project</a>
-          <a class="button button-secondary" href="#work">View work</a>
-        </div>
-      </section>
-
-      <section id="about" class="section about">
-        <div class="section-intro">
-          <p class="eyebrow">About</p>
-          <h2>Built for clarity, crafted with care.</h2>
-        </div>
-        <div class="about-grid">
-          <p>
-            Whether you need a landing page, campaign assets, or a full content
-            strategy, the focus is the same: clear ideas, strong visuals, and
-            work that earns attention without shouting for it.
+        <div class="hero-inner">
+          <div class="badge">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+            </svg>
+            Creative Director &amp; Brand Storyteller
+          </div>
+          <h1>
+            Strategy-Backed Creative
+            <br />
+            <span class="gradient-text">for Growing Businesses</span>
+          </h1>
+          <p class="hero-text">
+            With a background in creative direction and strategic communications, I help small to mid-sized businesses and B2B companies
+            transform their vision into compelling brand experiences — not just execution, but strategy that drives growth.
           </p>
-          <ul class="stats">
-            <li>
-              <strong>Strategy</strong>
-              <span>Message, audience, and goals aligned before production.</span>
-            </li>
-            <li>
-              <strong>Design</strong>
-              <span>Modern layouts that look sharp on every screen.</span>
-            </li>
-            <li>
-              <strong>Delivery</strong>
-              <span>Fast turnaround with room to refine.</span>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section id="work" class="section work">
-        <div class="section-intro">
-          <p class="eyebrow">Work</p>
-          <h2>Selected projects</h2>
-        </div>
-        <div class="card-grid">
-          <article class="card">
-            <p class="card-tag">Brand</p>
-            <h3>Launch campaign</h3>
-            <p>Visual identity and landing page for a new product rollout.</p>
-          </article>
-          <article class="card">
-            <p class="card-tag">Content</p>
-            <h3>Editorial series</h3>
-            <p>Long-form articles and social cutdowns for a growing audience.</p>
-          </article>
-          <article class="card">
-            <p class="card-tag">Web</p>
-            <h3>Portfolio site</h3>
-            <p>Fast, accessible static site hosted on AWS for a creative studio.</p>
-          </article>
-        </div>
-      </section>
-
-      <section id="services" class="section services">
-        <div class="section-intro">
-          <p class="eyebrow">Services</p>
-          <h2>What we can do together</h2>
-        </div>
-        <div class="service-list">
-          <div class="service">
-            <h3>Website design</h3>
-            <p>Simple, fast sites that tell your story and convert visitors.</p>
-          </div>
-          <div class="service">
-            <h3>Content creation</h3>
-            <p>Copy, visuals, and media packages tailored to your brand voice.</p>
-          </div>
-          <div class="service">
-            <h3>AWS hosting setup</h3>
-            <p>Reliable cloud deployment with S3, CloudFront, and best practices.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="contact.html">
+              Start Your Project
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+            <a class="button button-secondary" href="portfolio.html">View Portfolio</a>
           </div>
         </div>
       </section>
 
-      <section id="contact" class="section contact">
-        <div class="contact-panel">
-          <p class="eyebrow">Contact</p>
-          <h2>Let&apos;s build something worth sharing.</h2>
-          <p>
-            Tell us about your project and we&apos;ll get back to you within one
-            business day.
-          </p>
-          <a class="button button-primary" href="mailto:hello@aknightmedia.com">
-            hello@aknightmedia.com
-          </a>
+      <section class="section section-alt">
+        <div class="page-content">
+          <div class="section-header">
+            <h2>Service Packages</h2>
+            <p>Fixed-scope, fixed-price offerings designed for clarity and results</p>
+          </div>
+
+          <div class="card-grid card-grid-4">
+            <article class="package-card">
+              <div class="icon-box indigo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                </svg>
+              </div>
+              <h3>Brand Launch Kit</h3>
+              <p class="package-price indigo">$2,500–4,500</p>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Logo design
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Complete brand guide
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  3 social media templates
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Animated logo sting
+                </li>
+              </ul>
+              <a class="package-cta indigo" href="contact.html">Get Started</a>
+            </article>
+
+            <article class="package-card">
+              <div class="icon-box purple">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                  <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                </svg>
+              </div>
+              <h3>Explainer Video Package</h3>
+              <p class="package-price purple">$3,000–6,000</p>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Professional script
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Detailed storyboard
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Custom animation
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#c084fc" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Voice-over recording
+                </li>
+              </ul>
+              <a class="package-cta purple" href="contact.html">Get Started</a>
+            </article>
+
+            <article class="package-card">
+              <div class="icon-box pink">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .963 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.963 0z"></path>
+                </svg>
+              </div>
+              <h3>Social Motion Pack</h3>
+              <p class="package-price pink">$800–1,500<span style="font-size: 1rem; color: var(--text-subtle)">/mo</span></p>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  5 animated posts/reels
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Instagram &amp; LinkedIn formats
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Monthly retainer
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#f472b6" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Brand-consistent design
+                </li>
+              </ul>
+              <a class="package-cta pink" href="contact.html">Get Started</a>
+            </article>
+
+            <article class="package-card featured">
+              <span class="popular-badge">Most Popular</span>
+              <div class="icon-box indigo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <h3>Full Brand + Web</h3>
+              <p class="package-price indigo">$5,500–9,500</p>
+              <ul class="feature-list">
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Everything in Brand Launch Kit
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Website design or redesign
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Build &amp; deployment
+                </li>
+                <li>
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#818cf8" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                  Brand-consistent UX
+                </li>
+              </ul>
+              <a class="button button-primary package-cta" href="contact.html" style="border-radius: 0.5rem;">Get Started</a>
+            </article>
+          </div>
+
+          <div class="text-center mt-12">
+            <a class="button button-secondary" href="contact.html">
+              Schedule a Consultation
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M5 12h14"></path>
+                <path d="m12 5 7 7-7 7"></path>
+              </svg>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <section class="section">
+        <div class="page-content">
+          <div class="section-header">
+            <h2>Featured Case Studies</h2>
+            <p>See how strategy-backed creative drives real business growth</p>
+          </div>
+
+          <div class="card-grid card-grid-3">
+            <a class="case-card" href="case-studies/small-business.html">
+              <div class="case-card-image indigo">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+                  <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+                  <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+                </svg>
+              </div>
+              <div class="case-card-body">
+                <p class="case-tag indigo">Small Business</p>
+                <h3>Transforming Local Brands</h3>
+                <p>How a complete brand refresh helped a local boutique increase customer engagement by 150%.</p>
+                <span class="case-link">
+                  Read Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="case-card" href="case-studies/mid-sized.html">
+              <div class="case-card-image purple">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+                  <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+                </svg>
+              </div>
+              <div class="case-card-body">
+                <p class="case-tag purple">Mid-Sized Business</p>
+                <h3>Scaling Brand Identity</h3>
+                <p>Strategic video content and brand evolution that supported a regional expansion into 5 new markets.</p>
+                <span class="case-link" style="color: #c084fc;">
+                  Read Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </span>
+              </div>
+            </a>
+
+            <a class="case-card" href="case-studies/b2b.html">
+              <div class="case-card-image pink">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <circle cx="12" cy="12" r="10"></circle>
+                  <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+                  <path d="M2 12h20"></path>
+                </svg>
+              </div>
+              <div class="case-card-body">
+                <p class="case-tag pink">B2B</p>
+                <h3>Enterprise Digital Presence</h3>
+                <p>Complete web redesign and content strategy that increased qualified B2B leads by 240%.</p>
+                <span class="case-link" style="color: #f472b6;">
+                  Read Case Study
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </span>
+              </div>
+            </a>
+          </div>
         </div>
       </section>
     </main>
 
     <footer class="site-footer">
-      <p>&copy; <span id="year"></span> AKnight Media. All rights reserved.</p>
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h3>Knight Media</h3>
+            <p>Strategy-backed creative for growing businesses</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <p>Branding &bull; Web Design &bull; Video Production &bull; Animation</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Knight Media. All rights reserved.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="script.js"></script>

@@ -35,6 +35,7 @@ fi
 echo "Uploading site files..."
 aws s3 sync . "s3://${BUCKET_NAME}" \
   --exclude ".git/*" \
+  --exclude ".cursor/*" \
   --exclude "scripts/*" \
   --exclude ".env" \
   --exclude ".DS_Store" \

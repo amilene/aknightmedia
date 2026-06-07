@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Knight Media portfolio — branding, video, animation, and web design." />
+    <title>Portfolio — Knight Media</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav">
+        <a class="logo" href="index.html">
+          <img
+            class="logo-img"
+            src="assets/logo-animated.png"
+            data-static="assets/logo-static.png"
+            alt="Knight Media"
+          />
+        </a>
+        <button class="nav-toggle" aria-label="Open menu" aria-expanded="false">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="portfolio.html" class="is-active">Portfolio</a></li>
+          <li><a href="contact.html" class="nav-cta">Contact</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <main>
+      <div class="page-content">
+        <div class="page-hero">
+          <h1>Portfolio</h1>
+          <p>
+            A collection of branding, video production, animation, and web design work
+            that tells compelling stories and drives business results.
+          </p>
+        </div>
+
+        <div class="filter-bar" role="tablist" aria-label="Portfolio categories">
+          <button class="filter-btn is-active" data-filter="all" type="button">All Work</button>
+          <button class="filter-btn" data-filter="branding" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle>
+              <circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle>
+              <circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle>
+              <circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle>
+              <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10c.926 0 1.648-.746 1.648-1.688 0-.437-.18-.835-.437-1.125-.29-.289-.438-.652-.438-1.125a1.64 1.64 0 0 1 1.668-1.668h1.996c3.051 0 5.555-2.503 5.555-5.554C21.965 6.012 17.461 2 12 2z"></path>
+            </svg>
+            Branding &amp; Graphic Design
+          </button>
+          <button class="filter-btn" data-filter="video" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="m16 13 5.223 3.482a.5.5 0 0 0 .777-.416V7.87a.5.5 0 0 0-.752-.432L16 10.5"></path>
+              <rect x="2" y="6" width="14" height="12" rx="2"></rect>
+            </svg>
+            Video &amp; Animation
+          </button>
+          <button class="filter-btn" data-filter="web" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"></circle>
+              <path d="M12 2a14.5 14.5 0 0 0 0 20 14.5 14.5 0 0 0 0-20"></path>
+              <path d="M2 12h20"></path>
+            </svg>
+            Web Design
+          </button>
+        </div>
+
+        <div class="card-grid card-grid-3" id="portfolio-grid">
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Modern Tech Startup Brand Identity" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Modern Tech Startup Brand Identity</h3>
+              <p>Complete brand system for emerging SaaS company</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1763705857736-2b4f16a33758?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Boutique Retail Rebrand" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Boutique Retail Rebrand</h3>
+              <p>Logo refresh and visual identity for luxury retailer</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1762787863004-767d5d7eac07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Restaurant Brand Launch" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Restaurant Brand Launch</h3>
+              <p>Full brand identity and signage system</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1670341447004-606a07fcfaa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Corporate Logo Design" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Corporate Logo Design</h3>
+              <p>Professional logo and brand guidelines</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1769984867572-10dea95bd4f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Coffee Shop Brand Identity" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Coffee Shop Brand Identity</h3>
+              <p>Artisan brand development and packaging design</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="branding">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Business Card Suite" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Branding &amp; Graphic Design</p>
+              <h3>Business Card Suite</h3>
+              <p>Premium business card design and print collateral</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1528109966604-5a6a4a964e8d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Product Launch Explainer" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Product Launch Explainer</h3>
+              <p>Animated video showcasing new software platform</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1628494391268-c9935bc384d5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Corporate Training Series" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Corporate Training Series</h3>
+              <p>Multi-part animated training content</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Event Recap Video" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Event Recap Video</h3>
+              <p>Dynamic highlight reel with motion graphics</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1574717025058-2f8737d2e2b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Brand Story Animation" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Brand Story Animation</h3>
+              <p>Narrative-driven animated brand film</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1632187981988-40f3cbaeef5e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Commercial Production" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Commercial Production</h3>
+              <p>Full-service video production and post</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="video">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1632187989763-c9c620420b4d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Social Media Video Campaign" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Video &amp; Animation</p>
+              <h3>Social Media Video Campaign</h3>
+              <p>Series of short-form video content for social platforms</p>
+            </div>
+          </article>
+
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1522542550221-31fd19575a2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="E-Commerce Platform Redesign" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>E-Commerce Platform Redesign</h3>
+              <p>UX/UI overhaul for online retail experience</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1487338875411-8880f74114a2?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Professional Services Website" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>Professional Services Website</h3>
+              <p>Custom WordPress development for consulting firm</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1657812159055-7bae416f386d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Portfolio Website" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>Portfolio Website</h3>
+              <p>Clean, modern portfolio for creative professional</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1657812159077-90649115008c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Landing Page Design" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>Landing Page Design</h3>
+              <p>High-converting product landing page</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1487523117656-d5d117ad47c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="SaaS Dashboard Interface" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>SaaS Dashboard Interface</h3>
+              <p>Complex web application UI design</p>
+            </div>
+          </article>
+          <article class="portfolio-card" data-category="web">
+            <div class="portfolio-card-image">
+              <img src="https://images.unsplash.com/photo-1760008486593-a85315610136?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Interactive Web Experience" loading="lazy" />
+            </div>
+            <div class="portfolio-card-body">
+              <p class="category">Web Design</p>
+              <h3>Interactive Web Experience</h3>
+              <p>Cutting-edge 3D web design and development</p>
+            </div>
+          </article>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <div class="footer-inner">
+        <div class="footer-grid">
+          <div>
+            <h3>Knight Media</h3>
+            <p>Strategy-backed creative for growing businesses</p>
+          </div>
+          <div>
+            <h4>Quick Links</h4>
+            <div class="footer-links">
+              <a href="portfolio.html">Portfolio</a>
+              <a href="contact.html">Contact</a>
+            </div>
+          </div>
+          <div>
+            <h4>Services</h4>
+            <p>Branding &bull; Web Design &bull; Video Production &bull; Animation</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; <span id="year"></span> Knight Media. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
