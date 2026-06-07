@@ -6,12 +6,13 @@ logoImages.forEach((logo) => {
     return;
   }
 
+  const duration = Number(logo.dataset.duration) || 6000;
   const preload = new Image();
   preload.src = staticSrc;
 
   window.setTimeout(() => {
     logo.src = staticSrc;
-  }, 6000);
+  }, duration);
 });
 
 const year = document.getElementById("year");

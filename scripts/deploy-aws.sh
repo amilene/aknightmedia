@@ -32,13 +32,26 @@ if ! aws s3api head-bucket --bucket "$BUCKET_NAME" 2>/dev/null; then
   fi
 fi
 
-echo "Uploading site files..."
+echo "Uploading HTML pages..."
+aws s3 sync . "s3://${BUCKET_NAME}" \
+  --exclude "*" \
+  --include "*.html" \
+  --include "case-studies/*.html" \
+  --exclude ".git/*" \
+  --exclude ".cursor/*" \
+  --exclude "scripts/*" \
+  --exclude ".env" \
+  --exclude ".DS_Store" \
+  --cache-control "no-cache, no-store, must-revalidate"
+
+echo "Uploading static assets..."
 aws s3 sync . "s3://${BUCKET_NAME}" \
   --exclude ".git/*" \
   --exclude ".cursor/*" \
   --exclude "scripts/*" \
   --exclude ".env" \
   --exclude ".DS_Store" \
+  --exclude "*.html" \
   --delete \
   --cache-control "public, max-age=300"
 
