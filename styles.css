@@ -166,7 +166,7 @@ main {
   align-items: center;
   justify-content: center;
   text-align: center;
-  margin-top: 25px;
+  margin-top: 50px;
   padding: 3rem 1.5rem;
 }
 
@@ -981,7 +981,7 @@ main {
 
   .hero {
     min-height: auto;
-    margin-top: 25px;
+    margin-top: 50px;
     padding: 2rem 1.5rem 4rem;
   }
 }
