@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Knight Media portfolio — branding, video, animation, and web design." />
     <title>Portfolio — Knight Media</title>
-    <link rel="stylesheet" href="styles.css?v=5" />
+    <link rel="stylesheet" href="styles.css?v=8" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -79,7 +79,7 @@
         <div class="card-grid card-grid-3" id="portfolio-grid">
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1516131206008-dd041a9764fd?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Modern Tech Startup Brand Identity" loading="lazy" />
+              <img src="assets/aliat-brand-guide.png" alt="Modern Tech Startup Brand Identity" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
@@ -89,7 +89,7 @@
           </article>
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1763705857736-2b4f16a33758?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Boutique Retail Rebrand" loading="lazy" />
+              <img src="assets/dauntless-boutique-retail-brand.png" alt="Boutique Retail Rebrand" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
@@ -99,17 +99,17 @@
           </article>
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1762787863004-767d5d7eac07?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Restaurant Brand Launch" loading="lazy" />
+              <img src="assets/onelove-bvi-nonprofit-brand-identity.png" alt="Nonprofit Organization Brand Identity" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
-              <h3>Restaurant Brand Launch</h3>
+              <h3>Nonprofit Organization Brand Identity</h3>
               <p>Full brand identity and signage system</p>
             </div>
           </article>
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1670341447004-606a07fcfaa7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Corporate Logo Design" loading="lazy" />
+              <img src="assets/ando-schwed-corporate-logo.png" alt="Corporate Logo Design" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
@@ -119,21 +119,21 @@
           </article>
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1769984867572-10dea95bd4f1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Coffee Shop Brand Identity" loading="lazy" />
+              <img src="assets/ciat-brand-guidelines.png" alt="Higher Education Corporate Brand Identity" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
-              <h3>Coffee Shop Brand Identity</h3>
+              <h3>Higher Education Corporate Brand Identity</h3>
               <p>Artisan brand development and packaging design</p>
             </div>
           </article>
           <article class="portfolio-card" data-category="branding">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1670341445737-06f70d9b291a?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Business Card Suite" loading="lazy" />
+              <img class="portfolio-card-image-left" src="assets/blue-ridge-prism-brand-identity.png" alt="Nonprofit Corporate Rebrand" loading="lazy" />
             </div>
             <div class="portfolio-card-body">
               <p class="category">Branding &amp; Graphic Design</p>
-              <h3>Business Card Suite</h3>
+              <h3>Nonprofit Corporate Rebrand</h3>
               <p>Premium business card design and print collateral</p>
             </div>
           </article>
@@ -160,7 +160,17 @@
           </article>
           <article class="portfolio-card" data-category="video">
             <div class="portfolio-card-image">
-              <img src="https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080" alt="Event Recap Video" loading="lazy" />
+              <video
+                class="portfolio-card-video"
+                src="assets/event-recap-video.mp4"
+                poster="https://images.unsplash.com/photo-1612544409025-e1f6a56c1152?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080"
+                controls
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                aria-label="Event Recap Video"
+              ></video>
             </div>
             <div class="portfolio-card-body">
               <p class="category">Video &amp; Animation</p>
@@ -288,6 +298,14 @@
       </div>
     </footer>
 
-    <script src="script.js?v=3"></script>
+    <div id="portfolio-lightbox" class="lightbox" hidden>
+      <button type="button" class="lightbox-backdrop" aria-label="Close preview" data-close></button>
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Portfolio image preview">
+        <button type="button" class="lightbox-close" aria-label="Close preview" data-close>&times;</button>
+        <img class="lightbox-image" src="" alt="" />
+      </div>
+    </div>
+
+    <script src="script.js?v=4"></script>
   </body>
 </html>

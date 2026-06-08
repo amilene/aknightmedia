@@ -65,6 +65,42 @@ if (filterButtons.length && portfolioCards.length) {
   });
 }
 
+const portfolioGrid = document.getElementById("portfolio-grid");
+const portfolioLightbox = document.getElementById("portfolio-lightbox");
+const portfolioLightboxImage = portfolioLightbox?.querySelector(".lightbox-image");
+
+if (portfolioGrid && portfolioLightbox && portfolioLightboxImage) {
+  const closeLightbox = () => {
+    portfolioLightbox.hidden = true;
+    portfolioLightboxImage.removeAttribute("src");
+    portfolioLightboxImage.alt = "";
+    document.body.style.overflow = "";
+  };
+
+  portfolioGrid.addEventListener("click", (event) => {
+    const image = event.target.closest(".portfolio-card-image img");
+    if (!image) {
+      return;
+    }
+
+    portfolioLightboxImage.src = image.currentSrc || image.src;
+    portfolioLightboxImage.alt = image.alt;
+    portfolioLightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    portfolioLightbox.querySelector(".lightbox-close")?.focus();
+  });
+
+  portfolioLightbox.querySelectorAll("[data-close]").forEach((element) => {
+    element.addEventListener("click", closeLightbox);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape" && !portfolioLightbox.hidden) {
+      closeLightbox();
+    }
+  });
+}
+
 const contactForm = document.getElementById("contact-form");
 
 if (contactForm) {
