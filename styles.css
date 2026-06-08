@@ -108,6 +108,27 @@ img {
   background: var(--indigo-dark);
 }
 
+.nav-social {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  transition: opacity 0.2s ease;
+}
+
+.nav-social:hover,
+.nav-social:focus-visible {
+  color: #fff;
+  opacity: 0.8;
+}
+
+.nav-social svg,
+.nav-social img {
+  width: 1.35rem;
+  height: 1.35rem;
+  display: block;
+}
+
 .nav-toggle {
   display: none;
   background: none;
