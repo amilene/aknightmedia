@@ -864,6 +864,102 @@ main {
   border-color: rgba(99, 102, 241, 0.5);
 }
 
+.case-section-cta {
+  margin: 0 0 3rem;
+  text-align: center;
+}
+
+.pdf-lightbox-dialog {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: min(96vw, 56rem);
+  max-height: 92vh;
+  padding: 2.5rem 2rem 1.5rem;
+}
+
+.pdf-lightbox-title {
+  margin: 0;
+  font-size: 1.125rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.pdf-lightbox-viewer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-height: calc(92vh - 8rem);
+  overflow: auto;
+}
+
+.pdf-lightbox-canvas {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.45);
+  background: #fff;
+}
+
+.pdf-lightbox-canvas[hidden],
+.pdf-lightbox-loading[hidden] {
+  display: none;
+}
+
+.pdf-lightbox-loading {
+  margin: 0;
+  color: var(--text-muted);
+}
+
+.pdf-lightbox-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.pdf-lightbox-nav {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text);
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background 0.2s ease, opacity 0.2s ease;
+}
+
+.pdf-lightbox-nav:hover:not(:disabled),
+.pdf-lightbox-nav:focus-visible:not(:disabled) {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.pdf-lightbox-nav:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+
+.pdf-lightbox-nav svg {
+  width: 1rem;
+  height: 1rem;
+}
+
+.pdf-lightbox-page {
+  min-width: 7.5rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.95rem;
+}
+
 .contact-grid {
   display: grid;
   grid-template-columns: 2fr 1fr;

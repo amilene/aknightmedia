@@ -141,6 +141,188 @@ if (portfolioGrid && portfolioLightbox && portfolioLightboxImage && portfolioLig
   });
 }
 
+const pdfLightbox = document.getElementById("pdf-lightbox");
+const pdfTriggers = document.querySelectorAll("[data-pdf-lightbox]");
+
+if (pdfLightbox && pdfTriggers.length && typeof pdfjsLib !== "undefined") {
+  const pdfCanvas = pdfLightbox.querySelector(".pdf-lightbox-canvas");
+  const pdfLoading = pdfLightbox.querySelector("[data-pdf-loading]");
+  const pdfPageLabel = pdfLightbox.querySelector("[data-pdf-page]");
+  const pdfPrevButton = pdfLightbox.querySelector("[data-pdf-prev]");
+  const pdfNextButton = pdfLightbox.querySelector("[data-pdf-next]");
+  const pdfTitle = pdfLightbox.querySelector(".pdf-lightbox-title");
+  const pdfContext = pdfCanvas?.getContext("2d");
+
+  let pdfDocument = null;
+  let currentPage = 1;
+  let isRendering = false;
+  let pendingPage = null;
+
+  const updateNavState = () => {
+    if (!pdfDocument || !pdfPrevButton || !pdfNextButton || !pdfPageLabel) {
+      return;
+    }
+
+    pdfPageLabel.textContent = `Page ${currentPage} of ${pdfDocument.numPages}`;
+    pdfPrevButton.disabled = currentPage <= 1;
+    pdfNextButton.disabled = currentPage >= pdfDocument.numPages;
+  };
+
+  const getFitScale = (page) => {
+    const unscaled = page.getViewport({ scale: 1 });
+    const maxWidth = Math.min(window.innerWidth * 0.92, 56 * 16);
+    const maxHeight = window.innerHeight * 0.72;
+    return Math.min(maxWidth / unscaled.width, maxHeight / unscaled.height);
+  };
+
+  const renderPage = async (pageNumber) => {
+    if (!pdfDocument || !pdfCanvas || !pdfContext) {
+      return;
+    }
+
+    isRendering = true;
+    const page = await pdfDocument.getPage(pageNumber);
+    const viewport = page.getViewport({ scale: getFitScale(page) });
+
+    pdfCanvas.width = viewport.width;
+    pdfCanvas.height = viewport.height;
+    pdfCanvas.hidden = false;
+    if (pdfLoading) {
+      pdfLoading.hidden = true;
+    }
+
+    await page.render({ canvasContext: pdfContext, viewport }).promise;
+    isRendering = false;
+    updateNavState();
+
+    if (pendingPage !== null) {
+      const nextPage = pendingPage;
+      pendingPage = null;
+      currentPage = nextPage;
+      renderPage(nextPage);
+    }
+  };
+
+  const queueRenderPage = (pageNumber) => {
+    currentPage = pageNumber;
+    if (isRendering) {
+      pendingPage = pageNumber;
+      return;
+    }
+    renderPage(pageNumber);
+  };
+
+  const closePdfLightbox = () => {
+    pdfLightbox.hidden = true;
+    document.body.style.overflow = "";
+    pdfDocument = null;
+    currentPage = 1;
+    pendingPage = null;
+    isRendering = false;
+
+    if (pdfCanvas) {
+      pdfCanvas.hidden = true;
+      pdfCanvas.width = 0;
+      pdfCanvas.height = 0;
+    }
+    if (pdfLoading) {
+      pdfLoading.hidden = false;
+      pdfLoading.textContent = "Loading document…";
+    }
+    if (pdfPrevButton) {
+      pdfPrevButton.disabled = true;
+    }
+    if (pdfNextButton) {
+      pdfNextButton.disabled = true;
+    }
+    if (pdfPageLabel) {
+      pdfPageLabel.textContent = "Page 1 of 1";
+    }
+  };
+
+  const openPdfLightbox = async (url, title) => {
+    pdfLightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    if (pdfTitle && title) {
+      pdfTitle.textContent = title;
+    }
+    if (pdfLoading) {
+      pdfLoading.hidden = false;
+      pdfLoading.textContent = "Loading document…";
+    }
+    if (pdfCanvas) {
+      pdfCanvas.hidden = true;
+    }
+    pdfLightbox.querySelector(".lightbox-close")?.focus();
+
+    try {
+      const loadingTask = pdfjsLib.getDocument(url);
+      pdfDocument = await loadingTask.promise;
+      currentPage = 1;
+      await renderPage(1);
+    } catch {
+      if (pdfLoading) {
+        pdfLoading.hidden = false;
+        pdfLoading.textContent = "Unable to load this document.";
+      }
+    }
+  };
+
+  pdfTriggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const url = trigger.dataset.pdfLightbox;
+      const title = trigger.dataset.pdfTitle;
+      if (url) {
+        openPdfLightbox(url, title);
+      }
+    });
+  });
+
+  pdfLightbox.querySelectorAll("[data-pdf-close]").forEach((element) => {
+    element.addEventListener("click", closePdfLightbox);
+  });
+
+  pdfPrevButton?.addEventListener("click", () => {
+    if (currentPage > 1) {
+      queueRenderPage(currentPage - 1);
+    }
+  });
+
+  pdfNextButton?.addEventListener("click", () => {
+    if (pdfDocument && currentPage < pdfDocument.numPages) {
+      queueRenderPage(currentPage + 1);
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (pdfLightbox.hidden) {
+      return;
+    }
+
+    if (event.key === "Escape") {
+      closePdfLightbox();
+      return;
+    }
+
+    if (event.key === "ArrowLeft" && currentPage > 1) {
+      event.preventDefault();
+      queueRenderPage(currentPage - 1);
+      return;
+    }
+
+    if (event.key === "ArrowRight" && pdfDocument && currentPage < pdfDocument.numPages) {
+      event.preventDefault();
+      queueRenderPage(currentPage + 1);
+    }
+  });
+
+  window.addEventListener("resize", () => {
+    if (!pdfLightbox.hidden && pdfDocument) {
+      queueRenderPage(currentPage);
+    }
+  });
+}
+
 const contactForm = document.getElementById("contact-form");
 
 if (contactForm) {
