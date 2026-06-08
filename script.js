@@ -79,7 +79,7 @@ if (portfolioGrid && portfolioLightbox && portfolioLightboxImage) {
 
   portfolioGrid.addEventListener("click", (event) => {
     const image = event.target.closest(".portfolio-card-image img");
-    if (!image) {
+    if (!image || image.closest("a[href]")) {
       return;
     }
 
