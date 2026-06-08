@@ -47,3 +47,25 @@ Live site: https://d1yx8foe0modq8.cloudfront.net
 | Region | `us-east-1` |
 
 Override any value via environment variables before running the deploy script.
+
+## Contact form (AWS SES)
+
+The contact form can deliver submissions directly to your inbox through API Gateway, Lambda, and SES.
+
+```bash
+chmod +x scripts/setup-contact-form-aws.sh
+./scripts/setup-contact-form-aws.sh
+./scripts/deploy-aws.sh
+```
+
+Before testing, verify the sender and recipient email addresses in Amazon SES. If your SES account is still in the sandbox, both `FROM_EMAIL` and `TO_EMAIL` must be verified.
+
+Useful overrides:
+
+```bash
+TO_EMAIL=aknightmedia@gmail.com \
+FROM_EMAIL=aknightmedia@gmail.com \
+./scripts/setup-contact-form-aws.sh
+```
+
+If the API config file is missing, the form falls back to opening the visitor's email app via `mailto:`.

@@ -49,11 +49,19 @@ aws s3 sync . "s3://${BUCKET_NAME}" \
   --exclude ".git/*" \
   --exclude ".cursor/*" \
   --exclude "scripts/*" \
+  --exclude "aws/*" \
+  --exclude ".build/*" \
   --exclude ".env" \
   --exclude ".DS_Store" \
   --exclude "*.html" \
   --delete \
   --cache-control "public, max-age=300"
+
+if [ -f "config/contact-form.json" ]; then
+  echo "Uploading contact form config..."
+  aws s3 cp "config/contact-form.json" "s3://${BUCKET_NAME}/config/contact-form.json" \
+    --cache-control "no-cache, no-store, must-revalidate"
+fi
 
 if [ -n "$DISTRIBUTION_ID" ]; then
   echo "Invalidating CloudFront cache..."

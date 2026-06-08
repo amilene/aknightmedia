@@ -142,23 +142,108 @@ if (portfolioGrid && portfolioLightbox && portfolioLightboxImage && portfolioLig
 }
 
 const contactForm = document.getElementById("contact-form");
+const contactFormStatus = document.getElementById("contact-form-status");
+const contactFormSubmit = document.getElementById("contact-form-submit");
+let contactFormApiUrl = null;
+
+async function loadContactFormConfig() {
+  if (!contactForm) {
+    return;
+  }
+
+  try {
+    const response = await fetch("/config/contact-form.json", { cache: "no-store" });
+    if (!response.ok) {
+      return;
+    }
+
+    const config = await response.json();
+    if (config?.apiUrl) {
+      contactFormApiUrl = config.apiUrl;
+    }
+  } catch {
+    // Fall back to mailto when the API config is unavailable.
+  }
+}
+
+function setContactFormStatus(message, type) {
+  if (!contactFormStatus) {
+    return;
+  }
+
+  contactFormStatus.textContent = message;
+  contactFormStatus.hidden = false;
+  contactFormStatus.classList.remove("is-success", "is-error");
+  contactFormStatus.classList.add(type === "success" ? "is-success" : "is-error");
+}
+
+function setContactFormBusy(isBusy) {
+  if (!contactFormSubmit) {
+    return;
+  }
+
+  contactFormSubmit.disabled = isBusy;
+  contactFormSubmit.style.opacity = isBusy ? "0.7" : "";
+  contactFormSubmit.style.cursor = isBusy ? "wait" : "";
+}
+
+function sendContactFormViaMailto(payload) {
+  const subject = encodeURIComponent(`Project inquiry from ${payload.name}`);
+  const body = encodeURIComponent(
+    `Name: ${payload.name}\nEmail: ${payload.email}\nCompany: ${payload.company || "N/A"}\nService: ${payload.service}\n\n${payload.message}`
+  );
+
+  window.location.href = `mailto:aknightmedia@gmail.com?subject=${subject}&body=${body}`;
+}
 
 if (contactForm) {
-  contactForm.addEventListener("submit", (event) => {
+  loadContactFormConfig();
+
+  contactForm.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const formData = new FormData(contactForm);
-    const name = formData.get("name");
-    const email = formData.get("email");
-    const company = formData.get("company");
-    const service = formData.get("service");
-    const message = formData.get("message");
+    const payload = {
+      name: String(formData.get("name") || "").trim(),
+      email: String(formData.get("email") || "").trim(),
+      company: String(formData.get("company") || "").trim(),
+      service: String(formData.get("service") || "").trim(),
+      message: String(formData.get("message") || "").trim(),
+      website: String(formData.get("website") || "").trim(),
+    };
 
-    const subject = encodeURIComponent(`Project inquiry from ${name}`);
-    const body = encodeURIComponent(
-      `Name: ${name}\nEmail: ${email}\nCompany: ${company || "N/A"}\nService: ${service}\n\n${message}`
-    );
+    if (!contactFormApiUrl) {
+      sendContactFormViaMailto(payload);
+      return;
+    }
 
-    window.location.href = `mailto:hello@aknightmedia.com?subject=${subject}&body=${body}`;
+    setContactFormBusy(true);
+    if (contactFormStatus) {
+      contactFormStatus.hidden = true;
+    }
+
+    try {
+      const response = await fetch(contactFormApiUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      contactForm.reset();
+      setContactFormStatus("Thanks! Your message was sent. I will get back to you soon.", "success");
+    } catch {
+      setContactFormStatus(
+        "Sorry, your message could not be sent right now. Please email aknightmedia@gmail.com directly.",
+        "error"
+      );
+    } finally {
+      setContactFormBusy(false);
+    }
   });
 }

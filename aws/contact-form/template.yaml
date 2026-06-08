@@ -1,0 +1,119 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Description: Contact form API for AKnight Media (API Gateway + Lambda + SES)
+
+Parameters:
+  ToEmail:
+    Type: String
+    Default: aknightmedia@gmail.com
+    Description: Inbox that receives contact form submissions
+  FromEmail:
+    Type: String
+    Default: aknightmedia@gmail.com
+    Description: Verified SES sender address
+  AllowedOrigins:
+    Type: CommaDelimitedList
+    Default: "https://d1yx8foe0modq8.cloudfront.net,https://aknightmedia.com,https://www.aknightmedia.com,http://localhost:8080"
+
+Resources:
+  ContactFormRole:
+    Type: AWS::IAM::Role
+    Properties:
+      RoleName: aknightmedia-contact-form-role
+      AssumeRolePolicyDocument:
+        Version: "2012-10-17"
+        Statement:
+          - Effect: Allow
+            Principal:
+              Service: lambda.amazonaws.com
+            Action: sts:AssumeRole
+      ManagedPolicyArns:
+        - arn:aws:iam::aws:policy/service-role/AWSLambdaBasicExecutionRole
+      Policies:
+        - PolicyName: SendContactEmail
+          PolicyDocument:
+            Version: "2012-10-17"
+            Statement:
+              - Effect: Allow
+                Action:
+                  - ses:SendEmail
+                  - ses:SendRawEmail
+                Resource: "*"
+
+  ContactFormFunction:
+    Type: AWS::Lambda::Function
+    Properties:
+      FunctionName: aknightmedia-contact-form
+      Runtime: nodejs20.x
+      Handler: handler.handler
+      Role: !GetAtt ContactFormRole.Arn
+      Timeout: 10
+      MemorySize: 128
+      Environment:
+        Variables:
+          TO_EMAIL: !Ref ToEmail
+          FROM_EMAIL: !Ref FromEmail
+          ALLOWED_ORIGINS: !Join [",", !Ref AllowedOrigins]
+      Code:
+        ZipFile: |
+          exports.handler = async () => ({
+            statusCode: 503,
+            body: JSON.stringify({ ok: false, error: "Deploy function code with scripts/setup-contact-form-aws.sh" }),
+          });
+
+  ContactFormApi:
+    Type: AWS::ApiGatewayV2::Api
+    Properties:
+      Name: aknightmedia-contact-form
+      ProtocolType: HTTP
+      CorsConfiguration:
+        AllowOrigins: !Ref AllowedOrigins
+        AllowMethods:
+          - POST
+          - OPTIONS
+        AllowHeaders:
+          - Content-Type
+
+  ContactFormIntegration:
+    Type: AWS::ApiGatewayV2::Integration
+    Properties:
+      ApiId: !Ref ContactFormApi
+      IntegrationType: AWS_PROXY
+      IntegrationUri: !Sub arn:aws:apigateway:${AWS::Region}:lambda:path/2015-03-31/functions/${ContactFormFunction.Arn}/invocations
+      PayloadFormatVersion: "2.0"
+
+  ContactFormRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref ContactFormApi
+      RouteKey: POST /contact
+      Target: !Sub integrations/${ContactFormIntegration}
+
+  ContactFormOptionsRoute:
+    Type: AWS::ApiGatewayV2::Route
+    Properties:
+      ApiId: !Ref ContactFormApi
+      RouteKey: OPTIONS /contact
+      Target: !Sub integrations/${ContactFormIntegration}
+
+  ContactFormStage:
+    Type: AWS::ApiGatewayV2::Stage
+    Properties:
+      ApiId: !Ref ContactFormApi
+      StageName: prod
+      AutoDeploy: true
+
+  ContactFormInvokePermission:
+    Type: AWS::Lambda::Permission
+    Properties:
+      Action: lambda:InvokeFunction
+      FunctionName: !Ref ContactFormFunction
+      Principal: apigateway.amazonaws.com
+      SourceArn: !Sub arn:aws:execute-api:${AWS::Region}:${AWS::AccountId}:${ContactFormApi}/*/*
+
+Outputs:
+  ContactFormApiUrl:
+    Description: POST endpoint for the contact form
+    Value: !Sub https://${ContactFormApi}.execute-api.${AWS::Region}.amazonaws.com/prod/contact
+  ContactFormFunctionName:
+    Description: Lambda function name
+    Value: !Ref ContactFormFunction
