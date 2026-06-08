@@ -68,26 +68,66 @@ if (filterButtons.length && portfolioCards.length) {
 const portfolioGrid = document.getElementById("portfolio-grid");
 const portfolioLightbox = document.getElementById("portfolio-lightbox");
 const portfolioLightboxImage = portfolioLightbox?.querySelector(".lightbox-image");
+const portfolioLightboxVideo = portfolioLightbox?.querySelector(".lightbox-video");
 
-if (portfolioGrid && portfolioLightbox && portfolioLightboxImage) {
+if (portfolioGrid && portfolioLightbox && portfolioLightboxImage && portfolioLightboxVideo) {
   const closeLightbox = () => {
     portfolioLightbox.hidden = true;
+    portfolioLightboxImage.hidden = true;
     portfolioLightboxImage.removeAttribute("src");
     portfolioLightboxImage.alt = "";
+    portfolioLightboxVideo.hidden = true;
+    portfolioLightboxVideo.pause();
+    portfolioLightboxVideo.removeAttribute("src");
+    portfolioLightboxVideo.removeAttribute("poster");
+    portfolioLightboxVideo.removeAttribute("aria-label");
     document.body.style.overflow = "";
   };
 
+  const openLightbox = () => {
+    portfolioLightbox.hidden = false;
+    document.body.style.overflow = "hidden";
+    portfolioLightbox.querySelector(".lightbox-close")?.focus();
+  };
+
   portfolioGrid.addEventListener("click", (event) => {
+    const video = event.target.closest(".portfolio-card-image .portfolio-card-video");
+    if (video) {
+      event.preventDefault();
+      portfolioLightboxImage.hidden = true;
+      portfolioLightboxImage.removeAttribute("src");
+      portfolioLightboxImage.alt = "";
+      portfolioLightboxVideo.hidden = false;
+      portfolioLightboxVideo.src = video.currentSrc || video.src;
+      if (video.poster) {
+        portfolioLightboxVideo.poster = video.poster;
+      } else {
+        portfolioLightboxVideo.removeAttribute("poster");
+      }
+      const label = video.getAttribute("aria-label");
+      if (label) {
+        portfolioLightboxVideo.setAttribute("aria-label", label);
+      }
+      openLightbox();
+      portfolioLightboxVideo.load();
+      portfolioLightboxVideo.play().catch(() => {});
+      return;
+    }
+
     const image = event.target.closest(".portfolio-card-image img");
     if (!image || image.closest("a[href]")) {
       return;
     }
 
+    portfolioLightboxVideo.hidden = true;
+    portfolioLightboxVideo.pause();
+    portfolioLightboxVideo.removeAttribute("src");
+    portfolioLightboxVideo.removeAttribute("poster");
+    portfolioLightboxVideo.removeAttribute("aria-label");
+    portfolioLightboxImage.hidden = false;
     portfolioLightboxImage.src = image.currentSrc || image.src;
     portfolioLightboxImage.alt = image.alt;
-    portfolioLightbox.hidden = false;
-    document.body.style.overflow = "hidden";
-    portfolioLightbox.querySelector(".lightbox-close")?.focus();
+    openLightbox();
   });
 
   portfolioLightbox.querySelectorAll("[data-close]").forEach((element) => {

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Knight Media portfolio — branding, video, animation, and web design." />
     <title>Portfolio — Knight Media</title>
-    <link rel="stylesheet" href="styles.css?v=8" />
+    <link rel="stylesheet" href="styles.css?v=9" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -144,9 +144,6 @@
                 class="portfolio-card-video"
                 src="assets/outcry-animation.mp4"
                 poster="assets/outcry-animation-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Product Launch Explainer"
@@ -164,9 +161,6 @@
                 class="portfolio-card-video"
                 src="assets/corporate-training-series.mp4"
                 poster="assets/corporate-training-series-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Corporate Partnership Announcement"
@@ -184,9 +178,6 @@
                 class="portfolio-card-video"
                 src="assets/event-recap-video.mp4"
                 poster="assets/event-recap-video-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Rebrand Announcement Teaser"
@@ -204,9 +195,6 @@
                 class="portfolio-card-video"
                 src="assets/ciat-anthem-video.mp4"
                 poster="assets/ciat-anthem-video-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Brand Story Animation"
@@ -224,9 +212,6 @@
                 class="portfolio-card-video"
                 src="assets/cannacon-promo.mp4"
                 poster="assets/cannacon-promo-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Commercial Production"
@@ -244,9 +229,6 @@
                 class="portfolio-card-video"
                 src="assets/tony-hawk.mp4"
                 poster="assets/tony-hawk-poster.png"
-                controls
-                muted
-                loop
                 playsinline
                 preload="metadata"
                 aria-label="Tony Hawk"
@@ -326,12 +308,13 @@
 
     <div id="portfolio-lightbox" class="lightbox" hidden>
       <button type="button" class="lightbox-backdrop" aria-label="Close preview" data-close></button>
-      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Portfolio image preview">
+      <div class="lightbox-dialog" role="dialog" aria-modal="true" aria-label="Portfolio preview">
         <button type="button" class="lightbox-close" aria-label="Close preview" data-close>&times;</button>
-        <img class="lightbox-image" src="" alt="" />
+        <img class="lightbox-image" src="" alt="" hidden />
+        <video class="lightbox-video" controls playsinline preload="metadata" hidden></video>
       </div>
     </div>
 
-    <script src="script.js?v=4"></script>
+    <script src="script.js?v=5"></script>
   </body>
 </html>
