@@ -1,3 +1,7 @@
+if (/\/index\.html\/?$/.test(window.location.pathname)) {
+  history.replaceState(null, "", "/");
+}
+
 const logoImages = document.querySelectorAll(".logo-img");
 
 logoImages.forEach((logo) => {
