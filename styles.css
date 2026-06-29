@@ -71,9 +71,40 @@ img {
   align-items: center;
 }
 
+.logo-media {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  height: 6rem;
+}
+
 .logo-img {
   height: 6rem;
   width: auto;
+}
+
+.logo-media .logo-img-static {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: auto;
+  opacity: 0;
+  transition: opacity var(--logo-fade-duration, 500ms) ease;
+  pointer-events: none;
+}
+
+.logo-media .logo-img-animated {
+  opacity: 1;
+  transition: opacity var(--logo-fade-duration, 500ms) ease;
+}
+
+.logo-media.is-static .logo-img-animated {
+  opacity: 0;
+}
+
+.logo-media.is-static .logo-img-static {
+  opacity: 1;
 }
 
 .nav-links {

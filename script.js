@@ -10,13 +10,44 @@ logoImages.forEach((logo) => {
     return;
   }
 
-  const duration = Number(logo.dataset.duration) || 6000;
+  const animationDuration = Number(logo.dataset.duration) || 6000;
+  const fadeDuration = Number(logo.dataset.fadeDuration) || 500;
+  const fadeStart = animationDuration;
+
+  const wrap = document.createElement("span");
+  wrap.className = "logo-media";
+  wrap.style.setProperty("--logo-fade-duration", `${fadeDuration}ms`);
+  logo.parentNode.insertBefore(wrap, logo);
+  wrap.appendChild(logo);
+  logo.classList.add("logo-img-animated");
+
+  const staticImg = document.createElement("img");
+  staticImg.className = "logo-img logo-img-static";
+  staticImg.src = staticSrc;
+  staticImg.alt = logo.alt;
+  staticImg.setAttribute("aria-hidden", "true");
+  wrap.appendChild(staticImg);
+
   const preload = new Image();
   preload.src = staticSrc;
 
-  window.setTimeout(() => {
-    logo.src = staticSrc;
-  }, duration);
+  const swapToStatic = () => {
+    wrap.classList.add("is-static");
+    window.setTimeout(() => {
+      logo.remove();
+      staticImg.removeAttribute("aria-hidden");
+    }, fadeDuration);
+  };
+
+  const startSwapTimer = () => {
+    window.setTimeout(swapToStatic, fadeStart);
+  };
+
+  if (logo.complete) {
+    startSwapTimer();
+  } else {
+    logo.addEventListener("load", startSwapTimer, { once: true });
+  }
 });
 
 const year = document.getElementById("year");
