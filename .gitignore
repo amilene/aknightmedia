@@ -3,3 +3,6 @@
 *.log
 .build/
 config/contact-form.json
+
+# Hosted on S3 only — exceeds GitHub's 100MB file limit
+assets/Kevin Malone cameo CIAT graduation 2026 audio edited vert.mp4

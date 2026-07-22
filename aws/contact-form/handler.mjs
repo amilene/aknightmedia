@@ -11,7 +11,7 @@ const ALLOWED_ORIGINS = (process.env.ALLOWED_ORIGINS || "")
 const SERVICE_LABELS = {
   "brand-launch": "Brand Launch Kit",
   "explainer-video": "Explainer Video Package",
-  "social-motion": "Social Motion Pack",
+  "social-motion": "Motion Suite",
   "full-brand-web": "Full Brand + Web",
   consultation: "General Consultation",
 };

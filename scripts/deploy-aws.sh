@@ -37,6 +37,8 @@ aws s3 sync . "s3://${BUCKET_NAME}" \
   --exclude "*" \
   --include "*.html" \
   --include "case-studies/*.html" \
+  --include "robots.txt" \
+  --include "sitemap.xml" \
   --exclude ".git/*" \
   --exclude ".cursor/*" \
   --exclude "scripts/*" \
