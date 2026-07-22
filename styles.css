@@ -84,27 +84,15 @@ img {
 }
 
 .logo-media .logo-img-static {
-  position: absolute;
-  left: 0;
-  top: 0;
-  height: 100%;
-  width: auto;
-  opacity: 0;
-  transition: opacity var(--logo-fade-duration, 500ms) ease;
-  pointer-events: none;
-}
-
-.logo-media .logo-img-animated {
-  opacity: 1;
-  transition: opacity var(--logo-fade-duration, 500ms) ease;
+  display: none;
 }
 
 .logo-media.is-static .logo-img-animated {
-  opacity: 0;
+  display: none;
 }
 
 .logo-media.is-static .logo-img-static {
-  opacity: 1;
+  display: block;
 }
 
 .nav-links {

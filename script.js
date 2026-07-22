@@ -11,12 +11,9 @@ logoImages.forEach((logo) => {
   }
 
   const animationDuration = Number(logo.dataset.duration) || 6000;
-  const fadeDuration = Number(logo.dataset.fadeDuration) || 500;
-  const fadeStart = animationDuration;
 
   const wrap = document.createElement("span");
   wrap.className = "logo-media";
-  wrap.style.setProperty("--logo-fade-duration", `${fadeDuration}ms`);
   logo.parentNode.insertBefore(wrap, logo);
   wrap.appendChild(logo);
   logo.classList.add("logo-img-animated");
@@ -28,26 +25,44 @@ logoImages.forEach((logo) => {
   staticImg.setAttribute("aria-hidden", "true");
   wrap.appendChild(staticImg);
 
-  const preload = new Image();
-  preload.src = staticSrc;
-
   const swapToStatic = () => {
     wrap.classList.add("is-static");
-    window.setTimeout(() => {
-      logo.remove();
-      staticImg.removeAttribute("aria-hidden");
-    }, fadeDuration);
+    logo.setAttribute("aria-hidden", "true");
+    staticImg.removeAttribute("aria-hidden");
   };
 
   const startSwapTimer = () => {
-    window.setTimeout(swapToStatic, fadeStart);
+    window.setTimeout(swapToStatic, animationDuration);
   };
 
-  if (logo.complete) {
-    startSwapTimer();
-  } else {
-    logo.addEventListener("load", startSwapTimer, { once: true });
-  }
+  const whenReady = (callback) => {
+    let gifReady = logo.complete;
+    let staticReady = staticImg.complete;
+
+    const maybeStart = () => {
+      if (gifReady && staticReady) {
+        callback();
+      }
+    };
+
+    if (!gifReady) {
+      logo.addEventListener("load", () => {
+        gifReady = true;
+        maybeStart();
+      }, { once: true });
+    }
+
+    if (!staticReady) {
+      staticImg.addEventListener("load", () => {
+        staticReady = true;
+        maybeStart();
+      }, { once: true });
+    }
+
+    maybeStart();
+  };
+
+  whenReady(startSwapTimer);
 });
 
 const year = document.getElementById("year");
